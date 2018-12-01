@@ -8,4 +8,5 @@
   * [4.Action和Action类](structs2/4actionhe-action-lei.md)
   * [5.ActionContext获取web资源](structs2/5actioncontexthuo-qu-web-zi-yuan.md)
   * [6.通过Aware接口获取web资源](structs2/63001-tong-guo-aware-jie-kou-huo-qu-web-zi-yuan.md)
+  * [7.Struts2的过滤域名的问题](structs2/7struts2de-guo-lv-yu-ming-de-wen-ti.md)
 
