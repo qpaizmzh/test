@@ -14,5 +14,5 @@
 
 [5.ActionContext获取web资源](/structs2/5actioncontexthuo-qu-web-zi-yuan.md)
 
-
+[6.通过Aware接口获取web资源](/structs2/63001-tong-guo-aware-jie-kou-huo-qu-web-zi-yuan.md)
 
