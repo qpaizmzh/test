@@ -18,5 +18,5 @@
 
 [7.Struts2的过滤域名的问题](/structs2/7struts2de-guo-lv-yu-ming-de-wen-ti.md)
 
-[8.ActionSupport和Result的一些要点](/actionsupporthe-result-de-yi-xie-yao-dian.md)
+[8.ActionSupport和Result的一些要点](/structs2/8actionsupporthe-result-de-yi-xie-yao-dian.md)
 
