@@ -7,7 +7,8 @@
 * Struts的property标签用来输出值栈中的一个属性值：
 
 ```java
-//这里的[0]相当于是访问从栈顶访问第一个符合productName名字的元素
+//这里的[0]相当于是访问从栈顶访问第一个符合productName名字的元素，如果栈顶没有找到，就会自动的往下搜索符合
+//有这个名字的属性
 <s:property value="[0].productName"/>
 ```
 
