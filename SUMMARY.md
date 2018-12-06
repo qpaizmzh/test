@@ -15,4 +15,5 @@
   * [11.值栈-ValueStack](structs2/11zhi-6808-valuestack.md)
   * [12.ONGL的使用方法](structs2/12onglde-shi-yong-fang-fa.md)
   * [13.声明式异常处理](structs2/13sheng-ming-shi-yi-chang-chu-li.md)
+  * [14.通用标签（一）](structs2/14tong-yong-biao-qian-ff08-yi-ff09.md)
 
