@@ -6,7 +6,9 @@
 
 ## textfield, password, hidden 标签
 
-![](/assets/18-2.png)
+## ![](/assets/18-2.png)submit 标签
+
+## ![](/assets/18-3.png)
 
 
 
