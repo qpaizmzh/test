@@ -6,5 +6,9 @@
 
 ## ![](/assets/19-2.png)
 
+## checkboxlist 标签
 
+![](/assets/19-3.png)
+
+![](/assets/19-4.png)
 
