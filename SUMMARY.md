@@ -21,4 +21,5 @@
   * [17.form标签（一）](structs2/17formbiao-qian-ff08-yi-ff09.md)
   * [18.form标签（二）](structs2/18formbiao-qian-ff08-er-ff09.md)
   * [19.form标签（三）](structs2/19formbiao-qian-ff08-san-ff09.md)
+  * [20.Struts2标签的CRUD](structs2/20struts2biao-qian-de-crud.md)
 
