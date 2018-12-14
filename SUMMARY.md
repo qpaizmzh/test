@@ -23,4 +23,5 @@
   * [19.form标签（三）](structs2/19formbiao-qian-ff08-san-ff09.md)
   * [20.Struts2标签的CRUD](structs2/20struts2biao-qian-de-crud.md)
   * [21.Struts2的CRUD的小结与存在的问题](structs2/21struts2de-crud-de-xiao-jie-yu-cun-zai-de-wen-ti.md)
+  * [22.Preparable拦截器](structs2/22preparablelan-jie-qi.md)
 
