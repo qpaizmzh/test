@@ -24,4 +24,5 @@
   * [20.Struts2标签的CRUD](structs2/20struts2biao-qian-de-crud.md)
   * [21.Struts2的CRUD的小结与存在的问题](structs2/21struts2de-crud-de-xiao-jie-yu-cun-zai-de-wen-ti.md)
   * [22.Preparable拦截器](structs2/22preparablelan-jie-qi.md)
+  * [23.类型转换](structs2/23lei-xing-zhuan-huan.md)
 
