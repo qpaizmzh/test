@@ -38,3 +38,20 @@ II. 配置类型转换器:
 
 
 
+### 使用类型配置需要崽web.xml的设置：
+
+![](/assets/24-5.png)
+
+```
+public DateConvertor() {
+        System.out.println("constructor..");
+        //一般不这么用，因为在创建的时候，Convertor会首先加载，但是ServletActionContext并没有
+        及时生成，此时获取空的ServletContext，也就无法获取属性文件的属性值，最好使用局部定义Convertor
+        ServletContext servletContext = ServletActionContext.getServletContext();
+        String pattern = servletContext.getInitParameter("pattern");
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    }
+```
+
+
+
