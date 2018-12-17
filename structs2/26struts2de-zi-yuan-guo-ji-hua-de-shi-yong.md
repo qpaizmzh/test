@@ -1,6 +1,6 @@
 # 26.Struts2的资源国际化的使用
 
-![](/assets/26-1.png)![](/assets/27-2.png)![](/assets/26-3.png)![](/assets/26-4.png)![](/assets/26-5.png)![](/assets/26-6.png)
+![](/assets/26-1.png)![](/assets/27-2.png)![](/assets/26-3.png)![](/assets/26-4.png)![](/assets/26-5.png)![](/assets/26-6.png)![](/assets/26-7.png)
 
 1. 国际化的目标
 
@@ -45,7 +45,7 @@ IV.  国际化资源文件加载的顺序如何呢 ? 离当前 Action 较近的�
 I. 在 Action 类中. 若 Action 实现了 TextProvider 接口, 则可以调用其 getText\(\) 方法获取 value 值
 
 ```
-&gt; 通过继承 ActionSupport 的方式。 
+&gt; 通过继承 ActionSupport 的方式。
 ```
 
 II. 页面上可以使用 s:text 标签; 对于表单标签可以使用表单标签的 key 属性值
@@ -194,38 +194,37 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class TestI18nAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	private Date date = null;
-	
-	public Date getDate() {
-		return date;
-	}
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    private Date date = null;
 
-	@Override
-	public String execute() throws Exception {
-		
-		date = new Date();
-		
-		//1. 在 Action 中访问国际化资源文件的 value 值
-		String username = getText("username");
-		System.out.println(username);
-		
-		//2. 带占位符的
-		String time = getText("time", Arrays.asList(date));
-		System.out.println(time);
-		
-		return SUCCESS;
-	}
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @Override
+    public String execute() throws Exception {
+
+        date = new Date();
+
+        //1. 在 Action 中访问国际化资源文件的 value 值
+        String username = getText("username");
+        System.out.println(username);
+
+        //2. 带占位符的
+        String time = getText("time", Arrays.asList(date));
+        System.out.println(time);
+
+        return SUCCESS;
+    }
 }
-
 ```
 
 properties的文件代码示例如下：
@@ -238,8 +237,6 @@ submit=Submit
 time=Time:{0}
 time2=Time:${date}
 ```
-
-
 
 
 
