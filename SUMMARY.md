@@ -27,4 +27,5 @@
   * [23.类型转换](structs2/23lei-xing-zhuan-huan.md)
   * [24.自定义类型转换器](structs2/24zi-ding-yi-lei-xing-zhuan-huan-qi.md)
   * [25.类型转换与复杂属性配合使用](structs2/25lei-xing-zhuan-huan-yu-fu-za-shu-xing-pei-he-shi-yong.md)
+  * [26.Struts2的资源国际化的使用](structs2/26struts2de-zi-yuan-guo-ji-hua-de-shi-yong.md)
 
