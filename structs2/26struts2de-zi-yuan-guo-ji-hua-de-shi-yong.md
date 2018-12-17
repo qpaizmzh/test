@@ -74,23 +74,23 @@ II. 页面上可以使用 s:text 标签; 对于表单标签可以使用表单标
 
 	
 
-```
-<s:text name="time">
+	&lt;s:text name="time"&gt;
 
-<s:param value="date"></s:param>
+		&lt;s:param value="date"&gt;&lt;/s:param&gt;
 
-</s:text>
-```
+	&lt;/s:text&gt;
 
 
 
 	------------------------------------
 
-```
-	time2=Time:${date}
+	
 
-<s:text name="time2"></s:text>
-```
+	time2=Time:${date}
+
+	
+
+	&lt;s:text name="time2"&gt;&lt;/s:text&gt;
 
 	
 
@@ -126,11 +126,9 @@ III. 具体确定 Locale 对象的过程:
 
 IV.  具体实现: 只需要在超连接的后面附着  request\_locale 的请求参数, 值是 语言国家 代码.
 
-```
-<a href="testI18n.action?request_locale=en_US">English</a>
+	&lt;a href="testI18n.action?request\_locale=en\_US"&gt;English&lt;/a&gt;
 
-<a href="testI18n.action?request_locale=zh_CN">中文</a>
-```
+	&lt;a href="testI18n.action?request\_locale=zh\_CN"&gt;中文&lt;/a&gt;
 
 	
 
@@ -144,7 +142,7 @@ IV.  具体实现: 只需要在超连接的后面附着  request\_locale 的请�
 
 ### 
 
-###                                                                  源代码
+### 源代码
 
 ---
 
