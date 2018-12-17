@@ -4,11 +4,7 @@
 
 1. 国际化的目标
 
-
-
 1\). 如何配置国际化资源文件
-
-
 
 I.   Action 范围资源文件: 在Action类文件所在的路径建立名为 ActionName\_language\_country.properties 的文件
 
@@ -18,19 +14,15 @@ II.  包范围资源文件: 在包的根路径下建立文件名为 package\_lan
 
 III. 全局资源文件
 
-	&gt; 命名方式: basename\_language\_country.properties
+```
+&gt; 命名方式: basename\_language\_country.properties
 
-	&gt; struts.xml &lt;constant name="struts.custom.i18n.resources" value="baseName"/&gt;
+&gt; struts.xml &lt;constant name="struts.custom.i18n.resources" value="baseName"/&gt;
+```
 
-
-
-IV.  国际化资源文件加载的顺序如何呢 ? 离当前 Action 较近的将被优先加载. 
-
-
+IV.  国际化资源文件加载的顺序如何呢 ? 离当前 Action 较近的将被优先加载.
 
 假设我们在某个 ChildAction 中调用了getText\("username"\)：
-
-
 
 \(1\) 加载和 ChildAction 的类文件在同一个包下的系列资源文件 ChildAction.properties
 
@@ -48,97 +40,81 @@ IV.  国际化资源文件加载的顺序如何呢 ? 离当前 Action 较近的�
 
 \(8\) 直接输出该key的字符串值。
 
-
-
-
-
 2\). 如何在页面上 和 Action 类中访问国际化资源文件的  value 值
-
-
 
 I. 在 Action 类中. 若 Action 实现了 TextProvider 接口, 则可以调用其 getText\(\) 方法获取 value 值
 
-	&gt; 通过继承 ActionSupport 的方式。 
-
-	
+```
+&gt; 通过继承 ActionSupport 的方式。 
+```
 
 II. 页面上可以使用 s:text 标签; 对于表单标签可以使用表单标签的 key 属性值
 
-	&gt; 若有占位符, 则可以使用 s:text 标签的 s:param 子标签来填充占位符
+```
+&gt; 若有占位符, 则可以使用 s:text 标签的 s:param 子标签来填充占位符
 
-	&gt; 可以利用标签和 OGNL 表达式直接访问值栈中的属性值\(对象栈 和 Map 栈\)
-
-	
-
-	time=Time:{0}
-
-	
-
-	&lt;s:text name="time"&gt;
-
-		&lt;s:param value="date"&gt;&lt;/s:param&gt;
-
-	&lt;/s:text&gt;
+&gt; 可以利用标签和 OGNL 表达式直接访问值栈中的属性值\(对象栈 和 Map 栈\)
 
 
 
-	------------------------------------
-
-	
-
-	time2=Time:${date}
-
-	
-
-	&lt;s:text name="time2"&gt;&lt;/s:text&gt;
-
-	
+time=Time:{0}
 
 
 
-3\). 实现通过超链接切换语言. 
+&lt;s:text name="time"&gt;
+
+    &lt;s:param value="date"&gt;&lt;/s:param&gt;
+
+&lt;/s:text&gt;
 
 
+
+------------------------------------
+
+
+
+time2=Time:${date}
+
+
+
+&lt;s:text name="time2"&gt;&lt;/s:text&gt;
+```
+
+3\). 实现通过超链接切换语言.
 
 I.  关键之处在于知道 Struts2 框架是如何确定 Local 对象的 !
 
-II. 可以通过阅读 I18N 拦截器知道. 
+II. 可以通过阅读 I18N 拦截器知道.
 
 III. 具体确定 Locale 对象的过程:
 
+```
+&gt; Struts2 使用 i18n 拦截器 处理国际化，并且将其注册在默认的拦截器栈中
 
+&gt; i18n拦截器在执行Action方法前，自动查找请求中一个名为 request\_locale 的参数。
 
-	&gt; Struts2 使用 i18n 拦截器 处理国际化，并且将其注册在默认的拦截器栈中
+      如果该参数存在，拦截器就将其作为参数，转换成Locale对象，并将其设为用户默认的Locale\(代表国家/语言环境\)。
 
-	&gt; i18n拦截器在执行Action方法前，自动查找请求中一个名为 request\_locale 的参数。
+      并把其设置为 session 的 WW\_TRANS\_I18N\_LOCALE 属性
 
-	      如果该参数存在，拦截器就将其作为参数，转换成Locale对象，并将其设为用户默认的Locale\(代表国家/语言环境\)。
+&gt; 若 request 没有名为request\_locale 的参数，则 i18n 拦截器会从 Session 中获取 WW\_TRANS\_I18N\_LOCALE 的属性值，
 
-	      并把其设置为 session 的 WW\_TRANS\_I18N\_LOCALE 属性
+     若该值不为空，则将该属性值设置为浏览者的默认Locale 
 
-	&gt; 若 request 没有名为request\_locale 的参数，则 i18n 拦截器会从 Session 中获取 WW\_TRANS\_I18N\_LOCALE 的属性值，
-
-	     若该值不为空，则将该属性值设置为浏览者的默认Locale 
-
-	&gt; 若 session 中的 WW\_TRANS\_I18N\_LOCALE 的属性值为空，则从 ActionContext 中获取 Locale 对象。
-
-	
+&gt; 若 session 中的 WW\_TRANS\_I18N\_LOCALE 的属性值为空，则从 ActionContext 中获取 Locale 对象。
+```
 
 IV.  具体实现: 只需要在超连接的后面附着  request\_locale 的请求参数, 值是 语言国家 代码.
 
-	&lt;a href="testI18n.action?request\_locale=en\_US"&gt;English&lt;/a&gt;
+```
+&lt;a href="testI18n.action?request\_locale=en\_US"&gt;English&lt;/a&gt;
 
-	&lt;a href="testI18n.action?request\_locale=zh\_CN"&gt;中文&lt;/a&gt;
-
-	
-
-	&gt; 注意: 超链接必须是一个 Struts2 的请求, 即使 i18n 拦截器工作!
-
-	
+&lt;a href="testI18n.action?request\_locale=zh\_CN"&gt;中文&lt;/a&gt;
 
 
 
- 
+&gt; 注意: 超链接必须是一个 Struts2 的请求, 即使 i18n 拦截器工作!
+```
 
 ### 
 
@@ -162,7 +138,7 @@ IV.  具体实现: 只需要在超连接的后面附着  request\_locale 的请�
 
     <s:debug></s:debug>
 
-
+    //这里是通过超链接的方式将目前的
     <a href="testI18n.action?request_locale=en_US">English</a>
     <a href="testI18n.action?request_locale=zh_CN">中文</a>
     <br><br>
@@ -205,6 +181,65 @@ IV.  具体实现: 只需要在超连接的后面附着  request\_locale 的请�
 </body>
 </html>
 ```
+
+在Action中主要获取字段值的方法是：
+
+```java
+package com.atguigu.struts2.i18n.app;
+
+import java.util.Arrays;
+import java.util.Date;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class TestI18nAction extends ActionSupport {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Date date = null;
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public String execute() throws Exception {
+		
+		date = new Date();
+		
+		//1. 在 Action 中访问国际化资源文件的 value 值
+		String username = getText("username");
+		System.out.println(username);
+		
+		//2. 带占位符的
+		String time = getText("time", Arrays.asList(date));
+		System.out.println(time);
+		
+		return SUCCESS;
+	}
+}
+
+```
+
+properties的文件代码示例如下：
+
+```
+username=UserName
+passwword=Password
+submit=Submit
+
+time=Time:{0}
+time2=Time:${date}
+```
+
+
 
 
 
