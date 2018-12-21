@@ -72,11 +72,7 @@ OR
 
 &gt;为每一个不同的 action 请求定义其对应的验证文件: ActionClassName-AliasName-validation.xml
 
-
-
 &gt;不带别名的配置文件: ActionClassName-validation.xml 中的验证规则依然会发生作用. 可以把各个 action 公有的验证规则
-
-
 
 配置在其中. 但需要注意的是, 只适用于某一个 action 的请求的验证规则就不要这里再配置了.
 
@@ -84,11 +80,7 @@ OR
 
 &gt;Struts2 默认的拦截器栈中提供了一个 validation 拦截器
 
-
-
-&gt;每个具体的验证规则都会对应具体的一个验证器. 有一个配置文件把验证规则名称和验证器关联起来了. 而实际上验证的是那个验证器. 
-
-
+&gt;每个具体的验证规则都会对应具体的一个验证器. 有一个配置文件把验证规则名称和验证器关联起来了. 而实际上验证的是那个验证器.
 
 该文件位于 com.opensymphony.xwork2.validator.validators 下的 default.xml
 
@@ -98,27 +90,43 @@ OR
 
 5\). 短路验证: 若对一个字段使用多个验证器, 默认情况下会执行所有的验证. 若希望前面的验证器验证没有通过, 后面的就不再验证, 可以使用短路验证
 
-```
-    &lt;!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 --&gt;
+    &gt;!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 --&gt;
 
-    &lt;field-validator type="conversion" short-circuit="true"&gt;
+
+
+   &lt;field-validator type="conversion" short-circuit="true"&gt;
+
+
 
         &lt;message&gt;^Conversion Error Occurred&lt;/message&gt;
 
+
+
     &lt;/field-validator&gt;
+
+
+
+
 
 
 
     &lt;field-validator type="int"&gt;
 
+
+
         &lt;param name="min"&gt;20&lt;/param&gt;
+
+
 
         &lt;param name="max"&gt;60&lt;/param&gt;
 
+
+
         &lt;message key="error.int"&gt;&lt;/message&gt;
 
+
+
     &lt;/field-validator&gt;
-```
 
 6\). 若类型转换失败, 默认情况下还会执行后面的拦截器, 还会进行 验证. 可以通过修改 ConversionErrorInterceptor 源代码的方式使
 
