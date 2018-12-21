@@ -62,7 +62,7 @@ IV. 如何显示错误消息呢 ?
 
 &gt;若使用的是 simple 主题, 则需要 s:fielderror 标签或直接使用 EL 表达式\\(使用 OGNL\\)
 
-${fieldErrors.age\\[0\\] } 
+${fieldErrors.age\\[0\\] }
 
 OR
 
@@ -70,23 +70,27 @@ OR
 
 3\). 注意: 若一个 Action 类可以应答多个 action 请求, 多个 action 请求使用不同的验证规则, 怎么办 ?
 
-```
-&gt; 为每一个不同的 action 请求定义其对应的验证文件: ActionClassName-AliasName-validation.xml
+&gt;为每一个不同的 action 请求定义其对应的验证文件: ActionClassName-AliasName-validation.xml
 
-&gt; 不带别名的配置文件: ActionClassName-validation.xml 中的验证规则依然会发生作用. 可以把各个 action 公有的验证规则
+
+
+&gt;不带别名的配置文件: ActionClassName-validation.xml 中的验证规则依然会发生作用. 可以把各个 action 公有的验证规则
+
+
 
 配置在其中. 但需要注意的是, 只适用于某一个 action 的请求的验证规则就不要这里再配置了.
-```
 
 4\). 声明式验证框架的原理:
 
-```
-&gt; Struts2 默认的拦截器栈中提供了一个 validation 拦截器
+&gt;Struts2 默认的拦截器栈中提供了一个 validation 拦截器
 
-&gt; 每个具体的验证规则都会对应具体的一个验证器. 有一个配置文件把验证规则名称和验证器关联起来了. 而实际上验证的是那个验证器. 
+
+
+&gt;每个具体的验证规则都会对应具体的一个验证器. 有一个配置文件把验证规则名称和验证器关联起来了. 而实际上验证的是那个验证器. 
+
+
 
 该文件位于 com.opensymphony.xwork2.validator.validators 下的 default.xml
-```
 
 ```
 <validator name="required" class="com.opensymphony.xwork2.validator.validators.RequiredFieldValidator"/>
