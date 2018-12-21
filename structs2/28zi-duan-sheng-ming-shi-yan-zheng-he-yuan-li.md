@@ -48,7 +48,9 @@ II. 编写配置文件:
 <message key="error.int"></message>
 ```
 
-    再在国际化资源文件 中加入一个键值对: error.int=^^^Age needs to be between ${min} and ${max}
+```
+再在国际化资源文件 中加入一个键值对: error.int=^^^Age needs to be between ${min} and ${max}
+```
 
 III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=input 的 result
 
@@ -98,11 +100,11 @@ OR
 
 <field-validator type="int">
 
-    <param name="min"&gt;20&lt;/param>
+    <param name="min">20</param>
 
-    <param name="max"&gt;60&lt;/param>
+    <param name="max">60</param>
 
-    <message key="error.int"&gt;&lt;/message>
+    <message key="error.int"></message>
 
 
 </field-validator>
