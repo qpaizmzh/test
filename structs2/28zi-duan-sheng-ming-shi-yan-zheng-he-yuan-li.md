@@ -90,43 +90,23 @@ OR
 
 5\). 短路验证: 若对一个字段使用多个验证器, 默认情况下会执行所有的验证. 若希望前面的验证器验证没有通过, 后面的就不再验证, 可以使用短路验证
 
-    &gt;!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 --&gt;
+```
+<!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 -->
+<field-validator type="conversion" short-circuit="true">
+    <message>^Conversion Error Occurred</message>
+</field-validator>
+
+<field-validator type="int">
+
+    <param name="min"&gt;20&lt;/param>
+
+    <param name="max"&gt;60&lt;/param>
+
+    <message key="error.int"&gt;&lt;/message>
 
 
-
-   &lt;field-validator type="conversion" short-circuit="true"&gt;
-
-
-
-        &lt;message&gt;^Conversion Error Occurred&lt;/message&gt;
-
-
-
-    &lt;/field-validator&gt;
-
-
-
-
-
-
-
-    &lt;field-validator type="int"&gt;
-
-
-
-        &lt;param name="min"&gt;20&lt;/param&gt;
-
-
-
-        &lt;param name="max"&gt;60&lt;/param&gt;
-
-
-
-        &lt;message key="error.int"&gt;&lt;/message&gt;
-
-
-
-    &lt;/field-validator&gt;
+</field-validator>
+```
 
 6\). 若类型转换失败, 默认情况下还会执行后面的拦截器, 还会进行 验证. 可以通过修改 ConversionErrorInterceptor 源代码的方式使
 
@@ -153,17 +133,31 @@ OR
 7\). 关于非字段验证: 不是针对于某一个字段的验证.
 
 ```
-&lt;validator type="expression"&gt;
+<validator type="expression"<!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 -->
+<field-validator type="conversion" short-circuit="true">
+    <message>^Conversion Error Occurred</message>
+</field-validator>
 
-    &lt;param name="expression"&gt;&lt;!\[CDATA\[password==password2\]\]&gt;&lt;/param&gt;
+<field-validator type="int">
 
-    &lt;message&gt;Password is not equals to password2&lt;/message&gt;
+    <param name="min">20</param>
 
-&lt;/validator&gt;
+    <param name="max">60</param>
+
+    <message key="error.int"></message>
+
+
+</field-validator>
+
+    <param name="expression"><!\[CDATA\[password==password2\]\]></param>
+
+    <message>Password is not equals to password2</message>
+
+</validator>
 
 
 
-      显示非字段验证的错误消息, 使用 s:actionerror 标签:  &lt;s:actionerror/&gt;
+      显示非字段验证的错误消息, 使用 s:actionerror 标签:  <s:actionerror/>
 ```
 
 8\). 不同的字段使用同样的验证规则, 而且使用同样的响应消息 ?
