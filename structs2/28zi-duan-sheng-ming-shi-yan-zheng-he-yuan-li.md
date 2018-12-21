@@ -6,17 +6,23 @@
 
 1\). 验证分为两种:
 
-```
-&gt; 声明式验证\*
+&gt;声明式验证\\*
 
-    &gt;&gt; 对哪个 Action 或 Model 的那个字段进行验证
 
-    &gt;&gt; 使用什么验证规则
+
+  &gt;&gt; 对哪个 Action 或 Model 的那个字段进行验证
+
+
+
+   &gt;&gt; 使用什么验证规则
+
+
 
     &gt;&gt; 如果验证失败, 转向哪一个页面, 显示是什么错误消息
 
-&gt; 编程式验证
-```
+
+
+&gt;编程式验证
 
 2\). 声明式验证的 helloworld
 
@@ -24,17 +30,23 @@ I.  先明确对哪一个 Action 的哪一个字段进行验证: age
 
 II. 编写配置文件:
 
-```
 &gt; 把 struts-2.3.15.3\apps\struts2-blank\WEB-INF\classes\example 下的 Login-validation.xml 文件复制到
+
+
 
 当前 Action 所在的包下. 
 
-&gt; 把该配置文件改为: 把  Login 改为当前 Action 的名字. 
 
-&gt; 编写验证规则: 参见 struts-2.3.15.3/docs/WW/docs/validation.html 文档即可.
 
-&gt; 在配置文件中可以定义错误消息: 
-```
+&gt;把该配置文件改为: 把  Login 改为当前 Action 的名字. 
+
+
+
+&gt;编写验证规则: 参见 struts-2.3.15.3/docs/WW/docs/validation.html 文档即可.
+
+
+
+&gt;在配置文件中可以定义错误消息:
 
 ```
     <field name="age">
@@ -46,13 +58,15 @@ II. 编写配置文件:
      </field>
 ```
 
-```
  &gt; 该错误消息可以国际化吗. 可以
 
- &lt;message key="error.int"&gt;&lt;/message&gt;. 
+
+
+&lt;message key="error.int"&gt;&lt;/message&gt;
+
+
 
         再在国际化资源文件 中加入一个键值对: error.int=^^^Age needs to be between ${min} and ${max}
-```
 
 III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=input 的 result
 
@@ -83,7 +97,7 @@ OR
 
 &gt; 不带别名的配置文件: ActionClassName-validation.xml 中的验证规则依然会发生作用. 可以把各个 action 公有的验证规则
 
-配置在其中. 但需要注意的是, 只适用于某一个 action 的请求的验证规则就不要这里再配置了. 
+配置在其中. 但需要注意的是, 只适用于某一个 action 的请求的验证规则就不要这里再配置了.
 ```
 
 4\). 声明式验证框架的原理:
@@ -102,133 +116,109 @@ OR
 
 5\). 短路验证: 若对一个字段使用多个验证器, 默认情况下会执行所有的验证. 若希望前面的验证器验证没有通过, 后面的就不再验证, 可以使用短路验证
 
+```
+    &lt;!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 --&gt;
+
+    &lt;field-validator type="conversion" short-circuit="true"&gt;
+
+        &lt;message&gt;^Conversion Error Occurred&lt;/message&gt;
+
+    &lt;/field-validator&gt;
 
 
-		&lt;!-- 设置短路验证: 若当前验证没有通过, 则不再进行下面的验证 --&gt;
 
-		&lt;field-validator type="conversion" short-circuit="true"&gt;
+    &lt;field-validator type="int"&gt;
 
-			&lt;message&gt;^Conversion Error Occurred&lt;/message&gt;
+        &lt;param name="min"&gt;20&lt;/param&gt;
 
-		&lt;/field-validator&gt;
+        &lt;param name="max"&gt;60&lt;/param&gt;
 
+        &lt;message key="error.int"&gt;&lt;/message&gt;
 
-
-		&lt;field-validator type="int"&gt;
-
-			&lt;param name="min"&gt;20&lt;/param&gt;
-
-			&lt;param name="max"&gt;60&lt;/param&gt;
-
-			&lt;message key="error.int"&gt;&lt;/message&gt;
-
-		&lt;/field-validator&gt;	
-
-		
+    &lt;/field-validator&gt;    
+```
 
 6\). 若类型转换失败, 默认情况下还会执行后面的拦截器, 还会进行 验证. 可以通过修改 ConversionErrorInterceptor 源代码的方式使
 
 当类型转换失败时, 不再执行后续的验证拦截器, 而直接返回 input 的 result
 
+```
+    Object action = invocation.getAction\(\);
 
+    if \(action instanceof ValidationAware\) {
 
-		Object action = invocation.getAction\(\);
-
-        if \(action instanceof ValidationAware\) {
-
-            ValidationAware va = \(ValidationAware\) action;
-
-
-
-            if\(va.hasFieldErrors\(\) \|\| va.hasActionErrors\(\)\){
-
-            	return "input";
-
-            }
-
-        }	
-
-        
-
-7\). 关于非字段验证: 不是针对于某一个字段的验证. 
+        ValidationAware va = \(ValidationAware\) action;
 
 
 
-	&lt;validator type="expression"&gt;
+        if\(va.hasFieldErrors\(\) \|\| va.hasActionErrors\(\)\){
 
-        &lt;param name="expression"&gt;&lt;!\[CDATA\[password==password2\]\]&gt;&lt;/param&gt;
+            return "input";
 
-        &lt;message&gt;Password is not equals to password2&lt;/message&gt;
+        }
 
-    &lt;/validator&gt;
+    }    
+```
 
-     
+7\). 关于非字段验证: 不是针对于某一个字段的验证.
 
-          显示非字段验证的错误消息, 使用 s:actionerror 标签:  &lt;s:actionerror/&gt;
+```
+&lt;validator type="expression"&gt;
 
-          
+    &lt;param name="expression"&gt;&lt;!\[CDATA\[password==password2\]\]&gt;&lt;/param&gt;
+
+    &lt;message&gt;Password is not equals to password2&lt;/message&gt;
+
+&lt;/validator&gt;
+
+
+
+      显示非字段验证的错误消息, 使用 s:actionerror 标签:  &lt;s:actionerror/&gt;
+```
 
 8\). 不同的字段使用同样的验证规则, 而且使用同样的响应消息 ?
 
-
-
 error.int=${getText\(fieldName\)} needs to be between ${min} and ${max}
-
-
 
 age=\u5E74\u9F84
 
-count=\u6570\u91CF       
+count=\u6570\u91CF
 
-
-
-详细分析参见  PPT 159.  
-
-
+详细分析参见  PPT 159.
 
 9\). 自定义验证器:
 
-
-
 I.   定义一个验证器的类
 
+&gt;自定义的验证器都需要实现 Validator. 
 
 
-	&gt; 自定义的验证器都需要实现 Validator. 
 
-	&gt; 可以选择继承 ValidatorSupport 或 FieldValidatorSupport 类
-
-	&gt; 若希望实现一个一般的验证器, 则可以继承 ValidatorSupport
-
-	&gt; 若希望实现一个字段验证器, 则可以继承 FieldValidatorSupport
-
-	
-
-	&gt; 具体实现可以参考目前已经有的验证器. 
-
-	
-
-	&gt; 若验证程序需要接受一个输入参数, 需要为这个参数增加一个相应的属性
+&gt;可以选择继承 ValidatorSupport 或 FieldValidatorSupport 类
 
 
+
+&gt; 若希望实现一个一般的验证器, 则可以继承 ValidatorSupport
+
+
+
+&gt;若希望实现一个字段验证器, 则可以继承 FieldValidatorSupport
+
+
+
+&gt; 具体实现可以参考目前已经有的验证器. 
+
+
+
+&gt;若验证程序需要接受一个输入参数, 需要为这个参数增加一个相应的属性
 
 II.  在配置文件中配置验证器
 
+&gt;默认情况下下, Struts2 会在 类路径的根目录下加载 validators.xml 文件. 在该文件中加载验证器.该文件的定义方式同默认的验证器的那个配置文件: 位于 com.opensymphony.xwork2.validator.validators 下的 default.xml
 
+&gt; 若类路径下没有指定的验证器, 则从 com.opensymphony.xwork2.validator.validators 下的 default.xml 中的验证器加载     
 
-	&gt; 默认情况下下, Struts2 会在 类路径的根目录下加载 validators.xml 文件. 在该文件中加载验证器.
+III. 使用: 和目前的验证器一样.
 
-	     该文件的定义方式同默认的验证器的那个配置文件: 位于 com.opensymphony.xwork2.validator.validators 下的 default.xml
-
-	     
-
-	&gt; 若类路径下没有指定的验证器, 则从 com.opensymphony.xwork2.validator.validators 下的 default.xml 中的验证器加载     
-
-
-
-III. 使用: 和目前的验证器一样. 
-
-
-
-IV. 示例代码: 自定义一个 18 位身份证验证器       		
+IV. 示例代码: 自定义一个 18 位身份证验证器
 
