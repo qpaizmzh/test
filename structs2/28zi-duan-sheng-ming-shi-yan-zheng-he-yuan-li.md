@@ -53,7 +53,7 @@ II. 编写配置文件:
 III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=input 的 result
 
 ```
- &lt;result name="input"&gt;/validation.jsp&lt;/result&gt;
+ <result name="input"&gt;/validation.jsp&lt;/result>
 ```
 
 IV. 如何显示错误消息呢 ?
