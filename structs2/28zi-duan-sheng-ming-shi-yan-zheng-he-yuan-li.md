@@ -44,11 +44,11 @@ II. 编写配置文件:
 
 &gt; 该错误消息可以国际化吗. 可以
 
-&lt;message key="error.int"&gt;&lt;/message&gt;
+```
+<message key="error.int"></message>
+```
 
-```
     再在国际化资源文件 中加入一个键值对: error.int=^^^Age needs to be between ${min} and ${max}
-```
 
 III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=input 的 result
 
