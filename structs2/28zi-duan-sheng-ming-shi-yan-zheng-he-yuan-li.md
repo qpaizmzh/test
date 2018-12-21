@@ -58,19 +58,15 @@ III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=
 
 IV. 如何显示错误消息呢 ?
 
-```
-&gt; 若使用的是非 simple, 则自动显示错误消息.
+&gt;若使用的是非 simple, 则自动显示错误消息.
 
-&gt; 若使用的是 simple 主题, 则需要 s:fielderror 标签或直接使用 EL 表达式\(使用 OGNL\)
+&gt;若使用的是 simple 主题, 则需要 s:fielderror 标签或直接使用 EL 表达式\\(使用 OGNL\\)
 
-
-
-${fieldErrors.age\[0\] } 
+${fieldErrors.age\\[0\\] } 
 
 OR
 
-&lt;s:fielderror fieldName="age"&gt;&lt;/s:fielderror&gt;\*
-```
+&lt;s:fielderror fieldName="age"&gt;&lt;/s:fielderror&gt;\\*
 
 3\). 注意: 若一个 Action 类可以应答多个 action 请求, 多个 action 请求使用不同的验证规则, 怎么办 ?
 
