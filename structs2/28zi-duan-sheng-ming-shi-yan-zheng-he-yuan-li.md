@@ -115,21 +115,14 @@ OR
 当类型转换失败时, 不再执行后续的验证拦截器, 而直接返回 input 的 result
 
 ```
-    Object action = invocation.getAction\(\);
+	Object action = invocation.getAction();
+        if (action instanceof ValidationAware) {
+            ValidationAware va = (ValidationAware) action;
 
-    if \(action instanceof ValidationAware\) {
-
-        ValidationAware va = \(ValidationAware\) action;
-
-
-
-        if\(va.hasFieldErrors\(\) \|\| va.hasActionErrors\(\)\){
-
-            return "input";
-
+            if(va.hasFieldErrors() || va.hasActionErrors()){
+            	return "input";
+            }
         }
-
-    }
 ```
 
 7\). 关于非字段验证: 不是针对于某一个字段的验证.
