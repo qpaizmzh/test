@@ -53,7 +53,7 @@ II. 编写配置文件:
 III. 若验证失败, 则转向 input 的那个 result. 所以需要配置 name=input 的 result
 
 ```
- <result name="input"&gt;/validation.jsp&lt;/result>
+ <result name="input">/validation.jsp</result>
 ```
 
 IV. 如何显示错误消息呢 ?
@@ -154,7 +154,6 @@ OR
     <message>Password is not equals to password2</message>
 
 </validator>
-
 
 
       显示非字段验证的错误消息, 使用 s:actionerror 标签:  <s:actionerror/>
