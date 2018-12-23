@@ -30,4 +30,5 @@
   * [26.Struts2的资源国际化的使用](structs2/26struts2de-zi-yuan-guo-ji-hua-de-shi-yong.md)
   * [27.Struts2的运行过程分析](structs2/27struts2de-yun-xing-guo-cheng.md)
   * [28.字段声明式验证和原理](structs2/28zi-duan-sheng-ming-shi-yan-zheng-he-yuan-li.md)
+  * [29.自定义验证器](structs2/29zi-ding-yi-yan-zheng-qi.md)
 
