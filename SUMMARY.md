@@ -32,4 +32,5 @@
   * [28.字段声明式验证和原理](structs2/28zi-duan-sheng-ming-shi-yan-zheng-he-yuan-li.md)
   * [29.自定义验证器](structs2/29zi-ding-yi-yan-zheng-qi.md)
   * [30.Struts2的文件上传](structs2/30struts2de-wen-jian-shang-chuan.md)
+  * [32.Struts2的文件下载](structs2/32struts2de-wen-jian-xia-zai.md)
 
