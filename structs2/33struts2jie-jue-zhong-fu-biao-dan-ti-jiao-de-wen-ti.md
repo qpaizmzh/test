@@ -26,9 +26,7 @@
 
 		
 
-2\). 表单重复提交的危害:  			
-
-
+2\). 表单重复提交的危害: 数据多次传输，给 			
 
 3\). Struts2 解决表单的重复提交问题:
 
@@ -36,45 +34,37 @@
 
 I. 在 s:form 中添加 s:token 子标签
 
+&gt; 生成一个隐藏域
 
+&gt; 在 session 添加一个属性值
 
-	&gt; 生成一个隐藏域
-
-	&gt; 在 session 添加一个属性值
-
-	&gt; 隐藏域的值和 session 的属性值是一致的. 
+&gt; 隐藏域的值和 session 的属性值是一致的. 
 
 	
 
 II. 使用 Token 或 TokenSession 拦截器. 
 
+&gt; 这两个拦截器均不在默认的拦截器栈中, 所以需要手工配置一下
 
+&gt; 若使用 Token 拦截器, 则需要配置一个 token.valid 的 result
 
-	&gt; 这两个拦截器均不在默认的拦截器栈中, 所以需要手工配置一下
-
-	&gt; 若使用 Token 拦截器, 则需要配置一个 token.valid 的 result
-
-	&gt; 若使用 TokenSession 拦截器, 则不需要配置任何其它的 result
+&gt; 若使用 TokenSession 拦截器, 则不需要配置任何其它的 result
 
 	
 
 III. Token VS TokenSession
 
+&gt; 都是解决表单重复提交问题的
 
+&gt; 使用 token 拦截器会转到 token.valid 这个 result
 
-	&gt; 都是解决表单重复提交问题的
-
-	&gt; 使用 token 拦截器会转到 token.valid 这个 result
-
-	&gt; 使用 tokenSession 拦截器则还会响应那个目标页面, 但不会执行 tokenSession 的后续拦截器. 就像什么都没发生过一样!
+&gt; 使用 tokenSession 拦截器则还会响应那个目标页面, 但不会执行 tokenSession 的后续拦截器. 就像什么都没发生过一样!
 
 	
 
 IV. 可以使用 s:actionerror 标签来显示重复提交的错误消息. 
 
 该错误消息可以在国际化资源文件中覆盖. 该消息可以在 struts-messages.properties 文件中找到
-
-
 
 struts.messages.invalid.token=^^The form has already been processed or no token was supplied, please try again.
 
