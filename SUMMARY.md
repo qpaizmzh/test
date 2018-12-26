@@ -34,4 +34,5 @@
   * [30.Struts2的文件上传](structs2/30struts2de-wen-jian-shang-chuan.md)
   * [32.Struts2的文件下载](structs2/32struts2de-wen-jian-xia-zai.md)
   * [33.Struts2.解决重复表单提交的问题](structs2/33struts2jie-jue-zhong-fu-biao-dan-ti-jiao-de-wen-ti.md)
+  * [34.自定义拦截器](structs2/34zi-ding-yi-lan-jie-qi.md)
 
