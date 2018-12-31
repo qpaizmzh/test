@@ -35,4 +35,6 @@
   * [32.Struts2的文件下载](structs2/32struts2de-wen-jian-xia-zai.md)
   * [33.Struts2.解决重复表单提交的问题](structs2/33struts2jie-jue-zhong-fu-biao-dan-ti-jiao-de-wen-ti.md)
   * [34.自定义拦截器](structs2/34zi-ding-yi-lan-jie-qi.md)
+* [Hibernate](hibernate.md)
+  * [1、Hibernate的简单介绍和简单的对象映射方法](hibernate/1hibernatede-jian-dan-jie-shao-he-jian-dan-de-dui-xiang-ying-she-fang-fa.md)
 
