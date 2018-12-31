@@ -37,4 +37,5 @@
   * [34.自定义拦截器](structs2/34zi-ding-yi-lan-jie-qi.md)
 * [Hibernate](hibernate.md)
   * [1、Hibernate的简单介绍和简单的对象映射方法](hibernate/1hibernatede-jian-dan-jie-shao-he-jian-dan-de-dui-xiang-ying-she-fang-fa.md)
+  * [2、相关类的功能和作用方面的介绍](hibernate/23001-xiang-guan-lei-de-gong-neng-he-zuo-yong-fang-mian-de-jie-shao.md)
 
