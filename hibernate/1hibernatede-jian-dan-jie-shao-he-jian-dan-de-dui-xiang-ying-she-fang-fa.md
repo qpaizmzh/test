@@ -29,7 +29,7 @@ for instance（idea）:
         <property name="format_sql">true</property>
         <property name="show_sql">true</property>
 
-        <!--用来映射数据库表和实体类关系的属性标签，格式像如下-->
+        <!--用来映射数据库表和实体类关系的属性标签，格式像如下，是在映像的时候自动生成的-->
         <mapping class="com.hibernate.hello.ArtiEntity"/>
         <mapping resource="com/hibernate/hello/ArtiEntity.hbm.xml"/>
         <!-- <property name="connection.username"/> -->
@@ -39,6 +39,40 @@ for instance（idea）:
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>
+```
+
+* 映像完成后会生成对应的实体类和反应关系的XML文件，在实体类的文件中添加带参和不带参的构造器
+* 按照下面的流程创建或者修改对应的数据库的操作：
+
+```
+ //1、完成对sessionFactory的创建
+        SessionFactory sessionFactory = null;
+        //Configuration类在PPT有介绍它的功能
+        Configuration configuration = new Configuration().configure();
+        //新版的原因，现在加载configuration需要添加实体类的class属性
+        configuration.addClass(ArtiEntity.class);
+        //服务上的注册，需要前面的configuration的配置完成
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+        //2、创建对应的session
+        Session session = sessionFactory.openSession();
+
+        //3、事务
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
+
+        //4、创建要保存的对象
+        ArtiEntity artiEntity = new ArtiEntity("fuck", "jesus", new Date(new java.util.Date().getTime()));
+        session.save(artiEntity);
+
+        //提交事务
+        transaction.commit();
+
+        //关闭
+        session.close();
+        sessionFactory.close();
+    
 ```
 
 
