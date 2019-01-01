@@ -39,4 +39,5 @@
   * [1、Hibernate的简单介绍和简单的对象映射方法](hibernate/1hibernatede-jian-dan-jie-shao-he-jian-dan-de-dui-xiang-ying-she-fang-fa.md)
   * [2、相关类的功能和作用方面的介绍](hibernate/23001-xiang-guan-lei-de-gong-neng-he-zuo-yong-fang-mian-de-jie-shao.md)
   * [3、hibernate常用方法的代码事例](hibernate/3hibernatechang-yong-fang-fa-de-dai-ma-shi-li.md)
+  * [4、详解Hibernate.cfg.xml](hibernate/43001-xiang-jie-hibernate-cfg-xml.md)
 
