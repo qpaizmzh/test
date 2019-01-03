@@ -40,4 +40,5 @@
   * [2、相关类的功能和作用方面的介绍](hibernate/23001-xiang-guan-lei-de-gong-neng-he-zuo-yong-fang-mian-de-jie-shao.md)
   * [3、hibernate常用方法的代码事例](hibernate/3hibernatechang-yong-fang-fa-de-dai-ma-shi-li.md)
   * [4、详解Hibernate.cfg.xml](hibernate/43001-xiang-jie-hibernate-cfg-xml.md)
+  * [5、一些java类型和Hibernate、SQL间的映射关系](hibernate/53001-yi-xie-java-lei-xing-he-hibernate-sql-jian-de-ying-she-guan-xi.md)
 
