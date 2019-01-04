@@ -40,4 +40,5 @@
   * [2、相关类的功能和作用方面的介绍](hibernate/23001-xiang-guan-lei-de-gong-neng-he-zuo-yong-fang-mian-de-jie-shao.md)
   * [3、hibernate常用方法的代码事例](hibernate/3hibernatechang-yong-fang-fa-de-dai-ma-shi-li.md)
   * [4、详解Hibernate.cfg.xml](hibernate/43001-xiang-jie-hibernate-cfg-xml.md)
+  * [5、关联关系（oneToMany和ManyToOne）](hibernate/5.md)
 
