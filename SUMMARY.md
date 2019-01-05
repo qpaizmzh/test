@@ -42,4 +42,5 @@
   * [4、详解Hibernate.cfg.xml](hibernate/43001-xiang-jie-hibernate-cfg-xml.md)
   * [5、一些java类型和Hibernate、SQL间的映射关系](hibernate/53001-yi-xie-java-lei-xing-he-hibernate-sql-jian-de-ying-she-guan-xi.md)
   * [6、关联关系（oneToMany和ManyToOne）](hibernate/63001-guan-lianguan-xi-ff08-onetomany-he-manytoone.md)
+  * [7、set标签中几个需要提及的属性](hibernate/7setbiao-qian-zhong-ji-ge-xu-yao-ti-ji-de-shu-xing.md)
 
