@@ -26,7 +26,6 @@
 ![](/assets/hiber-7-3.png)例子：
 
 ```
-  
   //Customer.hbm.xml配置文件
   <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
@@ -46,8 +45,8 @@
         </set>
     </class>
 </hibernate-mapping>
-  
-  
+
+
   //单元测试的方法
     @Test
     public void cascade(){
@@ -67,5 +66,5 @@
     }
 ```
 
-
+![](/assets/hiber-7-4.png)
 
