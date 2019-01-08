@@ -45,4 +45,5 @@
   * [7、set标签中几个需要提及的属性](hibernate/7setbiao-qian-zhong-ji-ge-xu-yao-ti-ji-de-shu-xing.md)
   * [8、1对1主外键映射](hibernate/81dui-1-zhu-wai-jian-ying-she-he-duo-dui-duo-de-ying-she.md)
   * [9、多对多的映射](hibernate/9.md)
+  * [10、继承映射关系（了解用）](hibernate/103001-ji-cheng-ying-she-guan-xi-ff08-le-jie-yong-ff09.md)
 
