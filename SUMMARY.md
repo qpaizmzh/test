@@ -46,4 +46,5 @@
   * [8、1对1主外键映射](hibernate/81dui-1-zhu-wai-jian-ying-she-he-duo-dui-duo-de-ying-she.md)
   * [9、多对多的映射](hibernate/9.md)
   * [10、继承映射关系（了解用）](hibernate/103001-ji-cheng-ying-she-guan-xi-ff08-le-jie-yong-ff09.md)
+  * [11、hibernate检索策略](hibernate/11hibernatejian-suo-ce-lve.md)
 
