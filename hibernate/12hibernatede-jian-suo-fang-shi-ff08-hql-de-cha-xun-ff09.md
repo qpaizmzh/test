@@ -172,5 +172,25 @@
     }
 ```
 
+![](/assets/hiber-12-8.png)代码的例子：
+
+```
+	@Test
+	public void testGroupBy(){
+		String hql = "SELECT min(e.salary), max(e.salary) "
+				+ "FROM Employee e "
+				+ "GROUP BY e.dept "
+				+ "HAVING min(salary) > :minSal";
+		
+		Query query = session.createQuery(hql)
+				             .setFloat("minSal", 8000);
+		
+		List<Object []> result = query.list();
+		for(Object [] objs: result){
+			System.out.println(Arrays.asList(objs));
+		}
+	}
+```
+
 
 
