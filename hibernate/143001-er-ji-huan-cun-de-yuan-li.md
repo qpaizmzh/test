@@ -22,9 +22,11 @@ II.  配置hibernate二级缓存使用的产品
 
 III. 配置对哪些类使用 hibernate 的二级缓存
 <class-cache usage="read-write" class="com.atguigu.hibernate.entities.Employee"/>
-		
-实际上也可以在 .hbm.xml 文件中配置对哪些类使用二级缓存, 及二级缓存的策略是什么. 
+
+实际上也可以在 .hbm.xml 文件中配置对哪些类使用二级缓存, 及二级缓存的策略是什么.
 ```
+
+代码例子：
 
 ```
 @Test
