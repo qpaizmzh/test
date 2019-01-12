@@ -47,4 +47,5 @@
   * [9、多对多的映射](hibernate/9.md)
   * [10、继承映射关系（了解用）](hibernate/103001-ji-cheng-ying-she-guan-xi-ff08-le-jie-yong-ff09.md)
   * [11、hibernate检索策略](hibernate/11hibernatejian-suo-ce-lve.md)
+  * [12、hibernate的检索方式（HQL的查询）](hibernate/12hibernatede-jian-suo-fang-shi-ff08-hql-de-cha-xun-ff09.md)
 
