@@ -248,22 +248,23 @@
 ![](/assets/hiber-12-10.png)
 
 * 代码例子：
+
   ```
   @Test
-  	public void testLeftJoinFetch2(){
-  		String hql = "SELECT e FROM Employee e INNER JOIN e.dept";
-  		Query query = session.createQuery(hql);
-		
-  		List<Employee> emps = query.list();
-  		System.out.println(emps.size()); 
-		
-  		for(Employee emp: emps){
-  			System.out.println(emp.getName() + ", " + emp.getDept().getName());
-  		}
-  	}
+      public void testLeftJoinFetch2(){
+          String hql = "SELECT e FROM Employee e INNER JOIN e.dept";
+          Query query = session.createQuery(hql);
+
+          List<Employee> emps = query.list();
+          System.out.println(emps.size()); 
+
+          for(Employee emp: emps){
+              System.out.println(emp.getName() + ", " + emp.getDept().getName());
+          }
+      }
   ```
 
 
 
-
+![](/assets/hiber-12-11.png)
 
