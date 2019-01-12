@@ -45,5 +45,11 @@ III. 配置对哪些类使用 hibernate 的二级缓存
     }
 ```
 
+hibernate.fg.xml:
+
+```
+
+```
+
 
 
