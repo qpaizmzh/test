@@ -175,20 +175,73 @@
 ![](/assets/hiber-12-8.png)代码的例子：
 
 ```
-	@Test
-	public void testGroupBy(){
-		String hql = "SELECT min(e.salary), max(e.salary) "
-				+ "FROM Employee e "
-				+ "GROUP BY e.dept "
-				+ "HAVING min(salary) > :minSal";
+    @Test
+    public void testGroupBy(){
+        String hql = "SELECT min(e.salary), max(e.salary) "
+                + "FROM Employee e "
+                + "GROUP BY e.dept "
+                + "HAVING min(salary) > :minSal";
+
+        Query query = session.createQuery(hql)
+                             .setFloat("minSal", 8000);
+
+        List<Object []> result = query.list();
+        for(Object [] objs: result){
+            System.out.println(Arrays.asList(objs));
+        }
+    }
+```
+
+![](/assets/hiber-12-9.png)代码例子：
+
+```
+@Test
+	public void testLeftJoinFetch(){
+		//这条语句可以直接使用左连接，将查询的对象中某个属性关联的对象也一并查询出来
+		//因为是左外连接的原因，所以会用重复的情况，即使副表的关联为空，同样也会将数据查出来
+//		String hql = "SELECT DISTINCT d FROM Department d LEFT JOIN FETCH d.emps";
+
+       //另一个去重复的方式就是先使用LinkedHashSet来将数据去重，然后再进行list的包装
+		String hql = "FROM Department d INNER JOIN FETCH d.emps";
+		Query query = session.createQuery(hql);
 		
-		Query query = session.createQuery(hql)
-				             .setFloat("minSal", 8000);
+		List<Department> depts = query.list();
+		//包装去重的示例
+		depts = new ArrayList<>(new LinkedHashSet(depts));
+		System.out.println(depts.size()); 
 		
-		List<Object []> result = query.list();
-		for(Object [] objs: result){
-			System.out.println(Arrays.asList(objs));
+		for(Department dept: depts){
+			System.out.println(dept.getName() + "-" + dept.getEmps().size());
 		}
+	}
+```
+
+```
+	@Test
+	public void testLeftJoin(){
+		//可以直接使用语句获取对象，但是这样的获取对象没有加fetch这种的话是不会初始化对应的对象，
+		//实际上要等到使用的时候，hibernate才会将关联的对象进行查询
+		String hql = "SELECT DISTINCT d FROM Department d LEFT JOIN d.emps";
+		Query query = session.createQuery(hql);
+		
+		List<Department> depts = query.list();
+		System.out.println(depts.size());
+		
+		for(Department dept: depts){
+			//这里每一次的调用，都会查询getEmps中对应的表，获取了实例之后才会继续进行后面的方法
+			System.out.println(dept.getName() + ", " + dept.getEmps().size()); 
+		}
+		//这里只使用了left join，并没有使用fetch关键字，这样实际上在HQL语句里面拿的就是两个字段，
+		//只会返回object数组
+
+		//String hql = "SELECT d.abc,d.emps d FROM Department d LEFT JOIN d.emps";
+//		List<Object []> result = query.list(); 
+//		result = new ArrayList<>(new LinkedHashSet<>(result));
+//		System.out.println(result); 
+//		
+//		for(Object [] objs: result){
+//			System.out.println(Arrays.asList(objs));
+//		}
 	}
 ```
 
