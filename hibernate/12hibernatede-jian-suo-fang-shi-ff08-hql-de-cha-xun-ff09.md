@@ -127,7 +127,7 @@
       }
   ```
 
-* 投影查询
+* 投影查询  
   ![](/assets/hiber-12-7.png)
 
 代码例子：
@@ -135,40 +135,41 @@
 ```
 //这里的方法乜有直接使用的是Object数组来储存
 @Test
-	public void testFieldQuery(){
-		String hql = "SELECT e.email, e.salary, e.dept FROM Employee e WHERE e.dept = :dept";
-		Query query = session.createQuery(hql);
-		
-		Department dept = new Department();
-		dept.setId(80);
-		List<Object[]> result = query.setEntity("dept", dept)
-				                     .list();
-		
-		for(Object [] objs: result){
-			System.out.println(Arrays.asList(objs));
-		}
-	}
+    public void testFieldQuery(){
+        String hql = "SELECT e.email, e.salary, e.dept FROM Employee e WHERE e.dept = :dept";
+        Query query = session.createQuery(hql);
+
+        Department dept = new Department();
+        dept.setId(80);
+        List<Object[]> result = query.setEntity("dept", dept)
+                                     .list();
+
+        for(Object [] objs: result){
+            System.out.println(Arrays.asList(objs));
+        }
+    }
 ```
 
 ```
-	@Test
-	public void testFieldQuery2(){
-			//如果想按照对象的方式来，要在语句书写实体类的同时，要在
-		String hql = "SELECT new Employee(e.email, e.salary, e.dept) "
-				+ "FROM Employee e "
-				+ "WHERE e.dept = :dept";
-		Query query = session.createQuery(hql);
-		
-		Department dept = new Department();
-		dept.setId(80);
-		List<Employee> result = query.setEntity("dept", dept)
-				                     .list();
-		
-		for(Employee emp: result){
-			System.out.println(emp.getId() + ", " + emp.getEmail() 
-					+ ", " + emp.getSalary() + ", " + emp.getDept());
-		}
-	}
+    @Test
+    public void testFieldQuery2(){
+            //如果想按照对象的方式来，要在语句书写实体类的同时，要在实体类中添加相关的构造器，参数的顺序要和HQL语句的一致
+        String hql = "SELECT new Employee(e.email, e.salary, e.dept) "
+                + "FROM Employee e "
+                + "WHERE e.dept = :dept";
+        Query query = session.createQuery(hql);
+
+        Department dept = new Department();
+        dept.setId(80);
+        //这样获取的既不需要用Obeject数组包装，直接使用对象进行使用
+        List<Employee> result = query.setEntity("dept", dept)
+                                     .list();
+
+        for(Employee emp: result){
+            System.out.println(emp.getId() + ", " + emp.getEmail() 
+                    + ", " + emp.getSalary() + ", " + emp.getDept());
+        }
+    }
 ```
 
 
