@@ -116,24 +116,24 @@ III. 查询缓存依赖于二级缓存
 ![](/assets/hiber-15-5.png)
 
 ```
-	@Test
-	public void testQueryIterate(){
-	//实际上，如果前面并没有缓存到需要查询的数据，反而迭代查询会很影响性能
-	//如果没有，他就会没迭代一个对象，就会发送一个语句去查询对应属性的对象，会出现很多的查询语句，从而影响性能
-	
-		Department dept = (Department) session.get(Department.class, 70);
-		System.out.println(dept.getName());
-		System.out.println(dept.getEmps().size()); 
-		
-		Query query = session.createQuery("FROM Employee e WHERE e.dept.id = 80");
-//		List<Employee> emps = query.list();
-//		System.out.println(emps.size()); 
-		
-		Iterator<Employee> empIt = query.iterate();
-		while(empIt.hasNext()){
-			System.out.println(empIt.next().getName()); 
-		}
-	}
+    @Test
+    public void testQueryIterate(){
+    //实际上，如果前面并没有缓存到需要查询的数据，反而迭代查询会很影响性能
+    //如果没有，他就会没迭代一个对象，就会发送一个语句去查询对应属性的对象，会出现很多的查询语句，从而影响性能
+
+        Department dept = (Department) session.get(Department.class, 70);
+        System.out.println(dept.getName());
+        System.out.println(dept.getEmps().size()); 
+
+        Query query = session.createQuery("FROM Employee e WHERE e.dept.id = 80");
+//        List<Employee> emps = query.list();
+//        System.out.println(emps.size()); 
+
+        Iterator<Employee> empIt = query.iterate();
+        while(empIt.hasNext()){
+            System.out.println(empIt.next().getName()); 
+        }
+    }
 ```
 
 
