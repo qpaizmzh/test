@@ -49,4 +49,5 @@
   * [11、hibernate检索策略](hibernate/11hibernatejian-suo-ce-lve.md)
   * [12、hibernate的检索方式（HQL的查询）](hibernate/12hibernatede-jian-suo-fang-shi-ff08-hql-de-cha-xun-ff09.md)
   * [13、QBC检索和本地SQL检索](hibernate/13qbcjian-suo-he-ben-di-sql-jian-suo.md)
+  * [14、二级缓存的原理\(一\)](hibernate/143001-er-ji-huan-cun-de-yuan-li.md)
 
