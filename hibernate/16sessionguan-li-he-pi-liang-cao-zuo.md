@@ -104,5 +104,9 @@
     }
 ```
 
+* 批量处理数据（只了解JDBC的插入就好）
 
+![](/assets/hiber-16-3.png)
+
+![](/assets/hiber-16-4.png)![](/assets/hiber-16-5.png)![](/assets/hiber-16-7.png)![](/assets/hiber-16-8.png)![](/assets/hiber-16-9.png)
 
