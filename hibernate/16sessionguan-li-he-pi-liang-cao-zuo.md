@@ -1,3 +1,5 @@
+# session管理和批量操作
+
 ![](/assets/hiber-16-1.png)代码例子：
 
 * 先配置hibernate.cfg.xml中配置session的管理策略
@@ -5,103 +7,101 @@
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-    
-    	<!-- Hibernate 连接数据库的基本信息 -->
-    	<property name="connection.username">scott</property>
-    	<property name="connection.password">java</property>
-    	<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-    	<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
 
-		<!-- Hibernate 的基本配置 -->
-		<!-- Hibernate 使用的数据库方言 -->
-		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
-	
-		<!-- 运行时是否打印 SQL -->
-    	<property name="show_sql">true</property>
-    
-    	<!-- 运行时是否格式化 SQL -->
-    	<property name="format_sql">true</property>
-    
-    	<!-- 生成数据表的策略 -->
-    	<property name="hbm2ddl.auto">update</property>
-    	
-    	<!-- 设置 Hibernate 的事务隔离级别 -->
-    	<property name="connection.isolation">2</property>
-    	
-    	<!-- 删除对象后, 使其 OID 置为 null -->
-    	<property name="use_identifier_rollback">true</property>
-    	
-    	<!-- 配置 C3P0 数据源 -->
-    	<!--  
-    	<property name="hibernate.c3p0.max_size">10</property>
-    	<property name="hibernate.c3p0.min_size">5</property>
-    	<property name="c3p0.acquire_increment">2</property>
-    	
-    	<property name="c3p0.idle_test_period">2000</property>
-    	<property name="c3p0.timeout">2000</property>
-    	
-    	<property name="c3p0.max_statements">10</property>
-    	-->
-    	
-    	<!-- 设定 JDBC 的 Statement 读取数据的时候每次从数据库中取出的记录条数 -->
-    	<property name="hibernate.jdbc.fetch_size">100</property>
-    	
-    	<!-- 设定对数据库进行批量删除，批量更新和批量插入的时候的批次大小 -->
-    	<property name="jdbc.batch_size">30</property>
-    	
-    	<!-- 启用二级缓存 -->
-		<property name="cache.use_second_level_cache">true</property>
-    	
-    	<!-- 配置使用的二级缓存的产品 -->
-    	<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
-    	
-    	<!-- 配置启用查询缓存 -->
-    	<property name="cache.use_query_cache">true</property>
-    	
+        <!-- Hibernate 连接数据库的基本信息 -->
+        <property name="connection.username">scott</property>
+        <property name="connection.password">java</property>
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
 
-    	<!-- 配置管理 Session 的方式 -->
-    	<property name="current_session_context_class">thread</property>
-    	
-    	<!-- 需要关联的 hibernate 映射文件 .hbm.xml -->
-		<mapping resource="com/atguigu/hibernate/entities/Department.hbm.xml"/>
-		<mapping resource="com/atguigu/hibernate/entities/Employee.hbm.xml"/>
-		
-		<class-cache usage="read-write" class="com.atguigu.hibernate.entities.Employee"/>
-		<class-cache usage="read-write" class="com.atguigu.hibernate.entities.Department"/>
-		<collection-cache usage="read-write" collection="com.atguigu.hibernate.entities.Department.emps"/>
+        <!-- Hibernate 的基本配置 -->
+        <!-- Hibernate 使用的数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <!-- 运行时是否打印 SQL -->
+        <property name="show_sql">true</property>
+
+        <!-- 运行时是否格式化 SQL -->
+        <property name="format_sql">true</property>
+
+        <!-- 生成数据表的策略 -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 设置 Hibernate 的事务隔离级别 -->
+        <property name="connection.isolation">2</property>
+
+        <!-- 删除对象后, 使其 OID 置为 null -->
+        <property name="use_identifier_rollback">true</property>
+
+        <!-- 配置 C3P0 数据源 -->
+        <!--  
+        <property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="c3p0.acquire_increment">2</property>
+
+        <property name="c3p0.idle_test_period">2000</property>
+        <property name="c3p0.timeout">2000</property>
+
+        <property name="c3p0.max_statements">10</property>
+        -->
+
+        <!-- 设定 JDBC 的 Statement 读取数据的时候每次从数据库中取出的记录条数 -->
+        <property name="hibernate.jdbc.fetch_size">100</property>
+
+        <!-- 设定对数据库进行批量删除，批量更新和批量插入的时候的批次大小 -->
+        <property name="jdbc.batch_size">30</property>
+
+        <!-- 启用二级缓存 -->
+        <property name="cache.use_second_level_cache">true</property>
+
+        <!-- 配置使用的二级缓存的产品 -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- 配置启用查询缓存 -->
+        <property name="cache.use_query_cache">true</property>
+
+
+        <!-- 配置管理 Session 的方式 -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 需要关联的 hibernate 映射文件 .hbm.xml -->
+        <mapping resource="com/atguigu/hibernate/entities/Department.hbm.xml"/>
+        <mapping resource="com/atguigu/hibernate/entities/Employee.hbm.xml"/>
+
+        <class-cache usage="read-write" class="com.atguigu.hibernate.entities.Employee"/>
+        <class-cache usage="read-write" class="com.atguigu.hibernate.entities.Department"/>
+        <collection-cache usage="read-write" collection="com.atguigu.hibernate.entities.Department.emps"/>
     </session-factory>
 </hibernate-configuration>
-
 ```
 
 ```
+    @Test
+    public void testManageSession(){
 
-	@Test
-	public void testManageSession(){
-		
-		//获取 Session
-		//开启事务
-		Session session = HibernateUtils.getInstance().getSession();
-		System.out.println("-->" + session.hashCode());
-		Transaction transaction = session.beginTransaction();
-		
-		DepartmentDao departmentDao = new DepartmentDao();
-		
-		Department dept = new Department();
-		dept.setName("ATGUIGU");
-		
-		departmentDao.save(dept);
-		departmentDao.save(dept);
-		departmentDao.save(dept);
-		
-		//若 Session 是由 thread 来管理的, 则在提交或回滚事务时, 已经关闭 Session 了. 
-		transaction.commit();
-		System.out.println(session.isOpen()); 
-	}
+        //获取 Session
+        //开启事务
+        Session session = HibernateUtils.getInstance().getSession();
+        System.out.println("-->" + session.hashCode());
+        Transaction transaction = session.beginTransaction();
+
+        DepartmentDao departmentDao = new DepartmentDao();
+
+        Department dept = new Department();
+        dept.setName("ATGUIGU");
+
+        departmentDao.save(dept);
+        departmentDao.save(dept);
+        departmentDao.save(dept);
+
+        //若 Session 是由 thread 来管理的, 则在提交或回滚事务时, 已经关闭 Session 了. 
+        transaction.commit();
+        System.out.println(session.isOpen()); 
+    }
 ```
 
 
