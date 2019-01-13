@@ -51,4 +51,5 @@
   * [13、QBC检索和本地SQL检索](hibernate/13qbcjian-suo-he-ben-di-sql-jian-suo.md)
   * [14、二级缓存的原理\(一\)](hibernate/143001-er-ji-huan-cun-de-yuan-li.md)
   * [15、二级缓存的原理（二）](hibernate/153001-er-ji-huan-cun-de-yuan-li-ff08-er-ff09.md)
+  * [16、session管理和批量操作](hibernate/16sessionguan-li-he-pi-liang-cao-zuo.md)
 
