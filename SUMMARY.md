@@ -56,4 +56,5 @@
   * [1、spring的介绍](string/1springde-jie-shao.md)
   * [2、spring的Bean配置（IOC和DI的介绍）](string/2springde-bean-pei-zhi-ff08-ioc-he-di-de-jie-shao-ff09.md)
   * [3、spring的配置（配置Bean）](string/3springde-pei-zhi-ff08-pei-zhi-bean.md)
+  * [4、注入BEAN属性的细节](string/4.md)
 
