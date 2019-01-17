@@ -52,8 +52,8 @@
   * [14、二级缓存的原理\(一\)](hibernate/143001-er-ji-huan-cun-de-yuan-li.md)
   * [15、二级缓存的原理（二）](hibernate/153001-er-ji-huan-cun-de-yuan-li-ff08-er-ff09.md)
   * [16、session管理和批量操作](hibernate/16sessionguan-li-he-pi-liang-cao-zuo.md)
-* [String](string.md)
+* [Spring](string.md)
   * [1、spring的介绍](string/1springde-jie-shao.md)
   * [2、spring的Bean配置（IOC和DI的介绍）](string/2springde-bean-pei-zhi-ff08-ioc-he-di-de-jie-shao-ff09.md)
-  * 3、spring的配置（配置Bean）
+  * [3、spring的配置（配置Bean）](string/3springde-pei-zhi-ff08-pei-zhi-bean.md)
 
