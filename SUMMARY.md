@@ -60,4 +60,5 @@
   * [5、bean属性自动装配的问题](string/5.md)
   * [6、bean之间的关系（继承和依赖）](string/6beanzhi-jian-de-guan-xi-ff08-ji-cheng-he-yi-lai-ff09.md)
   * [7、BEAN的作用域](string/7beande-zuo-yong-yu.md)
+  * [8、spring使用外部属性文件](string/8springshi-yong-wai-bu-shu-xing-wen-jian.md)
 
