@@ -63,4 +63,5 @@
   * [8、spring使用外部属性文件](string/8springshi-yong-wai-bu-shu-xing-wen-jian.md)
   * [9、SPEL表达式的使用](string/9spelbiao-da-shi-de-shi-yong.md)
   * [10、管理BEAN的生命周期](string/103001-guan-li-bean-de-sheng-ming-zhou-qi.md)
+  * [11、使用BEAN工厂方法创建BEAN实例](string/113001-shi-yong-bean-gong-chang-fang-fa-chuang-jian-bean-shi-li.md)
 
