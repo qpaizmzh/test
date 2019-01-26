@@ -64,5 +64,69 @@ spring-bean.xml中的关键bean配置（里面的类名和上面的没有关系�
     </bean>
 ```
 
+![](/assets/spring-11-5.png)
+
+code:
+
+* 创建实现了factoryBean接口的bean类：
+
+```
+package com.spring.beans.factoryBean;
+
+import com.spring.beans.autowire.Car;
+import org.springframework.beans.factory.FactoryBean;
+
+public class CarFactoryBean implements FactoryBean<Car> {
+
+    private String brand;
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    @Override
+    public Car getObject() throws Exception {
+
+        return new Car(brand,50000);
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return Car.class;
+    }
+
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+}
+```
+
+* 在spring配置的xml文件中添加对应的bean:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    通过FactoryBean来配置Bean的实例
+    class:指向FactoryBean的全类名
+    property：配置FactoryBean的属性
+
+    调用这个方法的时候是调用了FactoryBean中的getObject()方法返回实例
+    -->
+    <bean id="carFactoryBean" class="com.spring.beans.factoryBean.CarFactoryBean">
+        <property name="brand" value="BMW"></property>
+    </bean>
+
+</beans>
+```
+
 
 
