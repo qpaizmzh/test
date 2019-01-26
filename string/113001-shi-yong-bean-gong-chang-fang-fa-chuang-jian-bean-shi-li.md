@@ -44,29 +44,24 @@ public class InstanceFactory {
 spring-bean.xml中的关键bean配置（里面的类名和上面的没有关系，只是案例，不用纠结）
 
 ```
-	<!-- 通过工厂方法的方式来配置 bean -->
-	<!-- 1. 通过静态工厂方法: 一个类中有一个静态方法, 可以返回一个类的实例(了解) -->
-	<!-- 在 class 中指定静态工厂方法的全类名, 在 factory-method 中指定静态工厂方法的方法名 -->
-	<bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateInstance">
-		<!-- 可以通过 constructor-arg 子节点为静态工厂方法指定参数 -->
-		<constructor-arg value="2"></constructor-arg>
-	</bean>
-	
-	<!-- 2. 实例工厂方法: 先需要创建工厂对象, 再调用工厂的非静态方法返回实例(了解) -->
-	<!-- ①. 创建工厂对应的 bean -->
-	<bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
-		<constructor-arg value="yyyy-MM-dd hh:mm:ss"></constructor-arg>
-	</bean>
-	
-	<!-- ②. 有实例工厂方法来创建 bean 实例 -->
-	<!-- factory-bean 指向工厂 bean, factory-method 指定工厂方法(了解) -->
-	<bean id="datetime" factory-bean="simpleDateFormat" factory-method="parse">
-		<!-- 通过 constructor-arg 执行调用工厂方法需要传入的参数 -->
-		<constructor-arg value="1990-12-12 12:12:12"></constructor-arg>
-	</bean>
-	
-	<!-- 配置通过 FactroyBean 的方式来创建 bean 的实例(了解) -->
-	<bean id="user" class="com.atguigu.spring.ref.UserBean"></bean>
+    <!-- ①、通过静态工厂方法的方式来配置 bean -->
+    <!--
+        class属性：指向静态工厂方法的全类名
+        factory-method:指向静态工厂方法的名字
+        constructor-args:如果工厂方法要传入参数，则使用constructor-args来配置参数
+    -->
+    <bean id="factory" class="com.spring.beans.autowire.StaticFactory" factory-method="getCar">
+    <constructor-arg value="audi"></constructor-arg>
+    </bean>
+
+    <!-- ②. 有实例工厂方法来创建 bean 实例 -->
+    <!-- factory-bean 指向工厂 bean, factory-method 指定工厂方法(了解) -->
+     <!--配置工厂的实例-->
+    <bean id="instanceFactory" class="com.spring.beans.autowire.InstanceFactory"></bean>
+    <!--通过实例工厂方法配置Bean-->
+    <bean id="car2" factory-bean="instanceFactory" factory-method="getCar">
+        <constructor-arg value="audi"></constructor-arg>
+    </bean>
 ```
 
 
