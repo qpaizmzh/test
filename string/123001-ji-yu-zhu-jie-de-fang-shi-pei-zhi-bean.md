@@ -1,4 +1,4 @@
-# 基于注解的方式配置Bean
+# 基于注解的方式配置Bean（一）
 
 ![](/assets/spring-12-1.png)![](/assets/spirng-12-2.png)![](/assets/spring-12-3.png)code:
 

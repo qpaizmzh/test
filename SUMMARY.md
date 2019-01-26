@@ -64,5 +64,5 @@
   * [9、SPEL表达式的使用](string/9spelbiao-da-shi-de-shi-yong.md)
   * [10、管理BEAN的生命周期](string/103001-guan-li-bean-de-sheng-ming-zhou-qi.md)
   * [11、使用BEAN工厂方法创建BEAN实例](string/113001-shi-yong-bean-gong-chang-fang-fa-chuang-jian-bean-shi-li.md)
-  * [12、基于注解的方式配置Bean](string/123001-ji-yu-zhu-jie-de-fang-shi-pei-zhi-bean.md)
+  * [12、基于注解的方式配置Bean\(一\)](string/123001-ji-yu-zhu-jie-de-fang-shi-pei-zhi-bean.md)
 
