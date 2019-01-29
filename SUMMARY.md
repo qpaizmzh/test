@@ -66,4 +66,5 @@
   * [11、使用BEAN工厂方法创建BEAN实例](string/113001-shi-yong-bean-gong-chang-fang-fa-chuang-jian-bean-shi-li.md)
   * [12、基于注解的方式配置Bean\(一\)](string/123001-ji-yu-zhu-jie-de-fang-shi-pei-zhi-bean.md)
   * [13、基于注解的方式配置文件（二 自动装载BEAN）](string/133001-ji-yu-zhu-jie-defang-shi-pei-zhi-wen-jian-ff08-er-zi-dong-zhuang-zai-bean.md)
+  * [14、泛型依赖注入](string/143001-fan-xing-yi-lai-zhu-ru.md)
 
