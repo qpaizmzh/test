@@ -16,7 +16,7 @@ spring-aspects-4.0.0.RELEASE.jar
 
 1. 在 Spring 的配置文件中加入 aop 的命名空间。
 
-1. 基于注解的方式来使用 AOP
+2. 基于注解的方式来使用 AOP
 
    3.1 在配置文件中配置自动扫描的包:
 
@@ -34,7 +34,7 @@ spring-aspects-4.0.0.RELEASE.jar
 
    4.2 在其中添加要额外实现的功能.
 
-1. 配置切面
+2. 配置切面
 
 5.1 切面必须是 IOC 中的 bean: 实际添加了 @Component 注解
 
@@ -50,9 +50,11 @@ spring-aspects-4.0.0.RELEASE.jar
 
 1. 在通知中访问连接细节: 可以在通知方法中添加 JoinPoint 类型的参数, 从中可以访问到方法的签名和方法的参数.
 
-1. @After 表示后置通知: 在方法执行之后执行的代码.
+2. @After 表示后置通知: 在方法执行之后执行的代码.
 
-![](/assets/spring-16-3.png)
+![](/assets/spring-16-3.png)![](/assets/spring-16-5.png)
+
+
 
 代码：
 
@@ -76,7 +78,6 @@ public class beforeAOP {
         System.out.println("before the method "+methodName);
     }
 }
-
 ```
 
 ```

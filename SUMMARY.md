@@ -68,5 +68,5 @@
   * [13、基于注解的方式配置文件（二 自动装载BEAN）](string/133001-ji-yu-zhu-jie-defang-shi-pei-zhi-wen-jian-ff08-er-zi-dong-zhuang-zai-bean.md)
   * [14、泛型依赖注入](string/143001-fan-xing-yi-lai-zhu-ru.md)
   * [15、AOP基本概念和原理理解](string/15aopji-ben-gai-nian-he-yuan-li-li-jie.md)
-  * [16、springAOP使用讲解\(前置通知\)](string/16springaopshi-yong-jiang-jie.md)
+  * [16、springAOP使用讲解\(前置、后置通知\)](string/16springaopshi-yong-jiang-jie.md)
 
