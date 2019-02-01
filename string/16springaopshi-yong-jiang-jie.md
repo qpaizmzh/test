@@ -54,8 +54,6 @@ spring-aspects-4.0.0.RELEASE.jar
 
 ![](/assets/spring-16-3.png)![](/assets/spring-16-5.png)
 
-
-
 代码：
 
 ```
@@ -72,10 +70,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class beforeAOP {
     //注意一下这个before的表达式，前面两个是匹配的类型，后面跟的是类的全路径，方法调用和参数的类型，可以用*来表示全匹配
-    @Before("execution(public void springAOP.ArithmeticCalculator2.add(int,int))")
+    @Before("execution(public void springAOP.ArithmeticCalculator2.*(int,int))")
     public void before(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("before the method "+methodName);
+    }
+    //后置通知的大同小异,在目标方法执行后，不管是否发生了异常该方法仍然执行，后置通知不能访问目标方法的结果
+    @After("execution(public void springAOP.ArithmeticCalculator2.*(int,int))")
+    public void after(JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println("after the method "+methodName);
     }
 }
 ```
@@ -94,6 +98,7 @@ public class main {
         ApplicationContext context = new ClassPathXmlApplicationContext("springAOP/application.xml");
        ArithmeticCalculator2 ari2 =context.getBean(ArithmeticCalculator2.class);
        ari2.add(1,2);
+       ari2.division(10,0);
     }
 }
 ```
