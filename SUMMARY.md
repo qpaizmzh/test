@@ -71,4 +71,5 @@
   * [16、springAOP使用讲解\(前置、后置通知\)](string/16springaopshi-yong-jiang-jie.md)
   * [17、AOP中的返回、异常、环绕通知](string/17aopzhong-de-fan-hui-3001-yi-chang-3001-huan-rao-tong-zhi.md)
   * [18、切面优先级的设置](string/183001-qie-mian-you-xian-ji-de-she-zhi.md)
+  * [19、重用切入定义表达式](string/19.md)
 
