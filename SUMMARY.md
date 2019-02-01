@@ -72,4 +72,5 @@
   * [17、AOP中的返回、异常、环绕通知](string/17aopzhong-de-fan-hui-3001-yi-chang-3001-huan-rao-tong-zhi.md)
   * [18、切面优先级的设置](string/183001-qie-mian-you-xian-ji-de-she-zhi.md)
   * [19、重用切入定义表达式](string/19.md)
+  * [20、使用XML文件配置AOP](string/203001-shi-yong-xml-wen-jian-pei-zhi-aop.md)
 
