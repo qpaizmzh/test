@@ -74,4 +74,5 @@
   * [19、重用切入定义表达式](string/19.md)
   * [20、使用XML文件配置AOP](string/203001-shi-yong-xml-wen-jian-pei-zhi-aop.md)
   * [21、Spring中的JDBCTemplate的使用方法](string/21springzhong-dejdbctemplate-de-shi-yong-fang-fa.md)
+  * [25、spring中的声明式的事务](string/25springzhong-de-sheng-ming-shi-de-shi-wu.md)
 
