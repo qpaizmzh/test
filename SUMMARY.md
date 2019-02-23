@@ -76,4 +76,5 @@
   * [21、Spring中的JDBCTemplate的使用方法](string/21springzhong-dejdbctemplate-de-shi-yong-fang-fa.md)
   * [25、spring中的声明式的事务](string/25springzhong-de-sheng-ming-shi-de-shi-wu.md)
   * [26、事物的其他属性](string/263001-shi-wu-de-qi-ta-shu-xing.md)
+  * [27、使用XML的方式配置事务](string/273001-shi-yong-xml-de-fang-shi-pei-zhi-shi-wu.md)
 
