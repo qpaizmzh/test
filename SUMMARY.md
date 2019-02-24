@@ -77,4 +77,5 @@
   * [25、spring中的声明式的事务](string/25springzhong-de-sheng-ming-shi-de-shi-wu.md)
   * [26、事物的其他属性](string/263001-shi-wu-de-qi-ta-shu-xing.md)
   * [27、使用XML的方式配置事务](string/273001-shi-yong-xml-de-fang-shi-pei-zhi-shi-wu.md)
+  * [28、spring和hibernate的整合过程](string/28springhe-hibernate-de-zheng-he-guo-cheng.md)
 
