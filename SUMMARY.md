@@ -78,4 +78,5 @@
   * [26、事物的其他属性](string/263001-shi-wu-de-qi-ta-shu-xing.md)
   * [27、使用XML的方式配置事务](string/273001-shi-yong-xml-de-fang-shi-pei-zhi-shi-wu.md)
   * [28、spring和hibernate的整合过程](string/28springhe-hibernate-de-zheng-he-guo-cheng.md)
+  * [29、spring在web应用中的使用（为整合Struts2做准备）](string/29springzai-web-ying-yong-zhong-de-shi-yong-ff08-wei-zheng-he-struts2-zuo-zhun-bei-ff09.md)
 
