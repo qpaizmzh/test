@@ -79,4 +79,5 @@
   * [27、使用XML的方式配置事务](string/273001-shi-yong-xml-de-fang-shi-pei-zhi-shi-wu.md)
   * [28、spring和hibernate的整合过程](string/28springhe-hibernate-de-zheng-he-guo-cheng.md)
   * [29、spring在web应用中的使用（为整合Struts2做准备）](string/29springzai-web-ying-yong-zhong-de-shi-yong-ff08-wei-zheng-he-struts2-zuo-zhun-bei-ff09.md)
+  * [30、spring-struts2的整合](string/30spring-struts2de-zheng-he.md)
 
